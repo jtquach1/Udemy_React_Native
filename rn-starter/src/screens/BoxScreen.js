@@ -16,26 +16,20 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        height: 200,
+        height: 100,
     },
     viewOneStyle: {
         backgroundColor: 'red',
-        width: 100,
-        height: 100,
-        right: 50,
+        flex: 1,
     },
     viewTwoStyle: {
         backgroundColor: 'green',
-        width: 100,
-        height: 100,
-        position: 'absolute',
+        flex: 1,
         top: 100,
     },
     viewThreeStyle: {
         backgroundColor: 'purple',
-        width: 100,
-        height: 100,
-        left: 50,
+        flex: 1,
     },
 });
 
