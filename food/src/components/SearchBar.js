@@ -1,14 +1,21 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-// import the icon library
 import { Feather } from '@expo/vector-icons';
 
-const SearchBar = () => {
-    // pass the name as a prop
+// the two props, term and onTermChange are going to show up in the props object
+// destructure props
+const SearchBar = ({ term, onTermChange }) => {
     return (
         <View style={styles.backgroundStyle}>
             <Feather name="search" style={styles.iconStyle} />
-            <TextInput style={styles.inputStyle} placeholder="Search" />
+            <TextInput 
+                autoCapitalize="none"
+                autoCorrect={false}
+                style={styles.inputStyle} 
+                placeholder="Search"
+                value={term}
+                onChangeText={newTerm => onTermChange(newTerm)} 
+            />
         </View>
     );
 };
@@ -27,7 +34,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     iconStyle: {
-        // since icons are rendered as vector fonts
         fontSize: 35,
         alignSelf: 'center',
         marginHorizontal: 15,
