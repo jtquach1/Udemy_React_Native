@@ -10,12 +10,7 @@ const SearchScreen = () => {
     
     const filterResultsByPrice = (price) => {
         // price === '$' | '$$' | '$$$'
-        // Pass a predicate lambda that checks whether the input result
-        // price is equal to the parent desired price
-        // Go through every restaurant/business object inside results
         return results.filter(result => {
-            // And return the object in a new results set
-            // if this statement evals to true
             return result.price === price;
         });
     };
