@@ -1,37 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
-import yelp from '../api/yelp';
+// PART 3: import the Hook we just created
+import useResults from '../hooks/useResults';
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
-    const [results, setResults] = useState([]);
-    // default empty string
-    const [errorMessage, setErrorMessage] = useState('');
+    // destructure variables
+    const [searchApi, results, errorMessage] = useResults();
 
-    const searchApi = async (searchTerm) => {
-        console.log('Hi there!');
-
-        try {
-            const response = await yelp.get('/search', {
-                params: {
-                    limit: 50,
-                    term: searchTerm,
-                    location: 'san jose',
-                },
-            });
-            setResults(response.data.businesses);
-        } catch (err) {
-            setErrorMessage('Something went wrong');
-        }
-    };
-
-    // !!!!!! BAD CODE !!!!!!
-    // Call searchApi when component is first rendered
-    // searchApi('pasta');
-    useEffect(() => {
-        searchApi('pasta');
-    }, [])
+    // PART 1: migrate all Yelp API related code to useResults.js
 
     return (
         <View>
